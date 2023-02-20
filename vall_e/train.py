@@ -1,14 +1,13 @@
 import json
 import logging
 from collections import defaultdict
-
 import torch
 from tqdm import tqdm
 
 from .config import cfg
 from .data import create_train_val_dataloader
 from .emb import qnt
-from .utils import setup_logging, to_device, trainer
+from utils import setup_logging, to_device, trainer
 from .vall_e import get_model
 
 _logger = logging.getLogger(__name__)
@@ -115,7 +114,7 @@ def main():
     def eval_fn(engines):
         run_eval(engines, "subtrain", subtrain_dl)
         run_eval(engines, "val", val_dl)
-
+    
     trainer.train(
         engines_loader=load_engines,
         train_dl=train_dl,

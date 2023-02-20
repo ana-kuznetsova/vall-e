@@ -40,7 +40,7 @@ class NAR(Base):
         Returns:
             [t'' l], l=8 if testing. empty list will be returned during training.
         """
-
+        #print(f"DEBUG FORWARD {len(text_list)} | {text_list[0].shape} | {len(proms_list)} | {proms_list[0].shape} | {len(resps_list)} | {resps_list[0].shape}")
         n_levels_set = {r.shape[-1] for r in resps_list}
 
         if len(n_levels_set) > 1:

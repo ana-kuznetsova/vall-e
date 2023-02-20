@@ -4,7 +4,7 @@ from pathlib import Path
 
 import diskcache
 
-from .utils import Config as ConfigBase
+from utils.config import Config as ConfigBase
 
 
 @dataclass(frozen=True)
@@ -26,8 +26,8 @@ class Config(ConfigBase):
     num_tokens: int = 1024
 
     nj: int = 8
-    batch_size: int = 32
-    eval_batch_size: int = 32
+    batch_size: int = 1
+    eval_batch_size: int = 1
     warmup_min_lr: float = 1e-6
     warmup_max_lr: float = 2e-4
     dis_warmup_max_lr: float = 4e-4
@@ -37,7 +37,7 @@ class Config(ConfigBase):
     eval_every: int = 2_000
     save_ckpt_every: int = 2_000
 
-    model: str = "ar-quarter"
+    model: str = "nar-quarter"
     spkr_name_getter: str = "lambda p: p.parts[-2]"
 
     min_phones: int = 10
