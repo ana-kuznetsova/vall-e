@@ -1,6 +1,10 @@
+import sys
+#sys.path.append('/home/anakuzne/projects/vall-e/vall_e')
 from ..config import cfg
+#from config import cfg
 from .ar import AR
 from .nar import NAR
+import torch
 
 
 def get_model(name):
@@ -30,12 +34,10 @@ def get_model(name):
     else:
         if name not in ["ar", "nar"]:
             raise NotImplementedError(name)
-
         model = Model(
             cfg.num_tokens,
             d_model=1024,
             n_heads=16,
             n_layers=12,
         )
-
     return model

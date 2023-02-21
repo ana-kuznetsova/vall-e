@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 from .config import cfg
 from .data import create_train_val_dataloader
-from .emb import qnt
+from .emb import qnt 
 from utils import setup_logging, to_device, trainer
 from .vall_e import get_model
 
@@ -22,13 +22,11 @@ def load_engines():
             config=cfg.ds_cfg,
         ),
     )
-
     return trainer.load_engines(engines, cfg)
 
 
 def main():
     setup_logging(cfg.log_dir)
-
     train_dl, subtrain_dl, val_dl = create_train_val_dataloader()
 
     def train_feeder(engines, batch, name):

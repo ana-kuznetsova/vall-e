@@ -5,6 +5,8 @@ from pathlib import Path
 import diskcache
 
 from utils.config import Config as ConfigBase
+#from omegaconf import OmegaConf
+#import sys
 
 
 @dataclass(frozen=True)
@@ -39,6 +41,7 @@ class Config(ConfigBase):
 
     model: str = "nar-quarter"
     spkr_name_getter: str = "lambda p: p.parts[-2]"
+    init_ckpt: str = "none"
 
     min_phones: int = 10
     max_phones: int = 50

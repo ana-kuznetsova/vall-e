@@ -478,7 +478,6 @@ class Base(nn.Module):
             y_list = self._samplewise_merge_tensors(
                 text_prom_list, targ_list, sep=ignore_sep
             )
-
             self.loss = dict(
                 nll=F.cross_entropy(
                     torch.cat(h_list),

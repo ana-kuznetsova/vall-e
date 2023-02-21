@@ -11,7 +11,6 @@ import torch
 from torch import Tensor
 from torch.utils.data import DataLoader, Dataset
 from tqdm import tqdm
-
 from .config import cfg
 from .sampler import Sampler
 

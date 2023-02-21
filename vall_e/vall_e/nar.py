@@ -1,7 +1,8 @@
 import torch
 from torch import Tensor
-
-from .base import Base
+import sys
+sys.path.append('/home/anakuzne/projects/vall-e/vall_e/vall_e')
+from base import Base
 
 
 class NAR(Base):
@@ -69,7 +70,6 @@ class NAR(Base):
                 shift_targ_list=False,
                 quant_levels=quant_levels,
             )
-
             # Yes, just nothing as we are training
             prev_list = []
         else:
@@ -82,7 +82,6 @@ class NAR(Base):
                     break
 
                 quant_levels = torch.full((len(text_list),), level, device=device)
-
                 resp_list = super().forward(
                     text_list,
                     proms_list,

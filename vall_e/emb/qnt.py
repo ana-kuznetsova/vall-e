@@ -11,8 +11,9 @@ from encodec import EncodecModel
 from encodec.utils import convert_audio
 from torch import Tensor
 from tqdm import tqdm
-
-from ..config import cfg
+import sys
+sys.path.append('/home/anakuzne/projects/vall-e/vall_e')
+from config import cfg
 
 
 @cache
